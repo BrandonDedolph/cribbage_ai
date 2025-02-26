@@ -90,7 +90,7 @@ class Cribbage:
                 case 3:
                     triples += 1
 
-        return (2**pairs) * len(largest_run) ** (2**triples)
+        return len(largest_run) * (2**pairs) * (3**triples)
 
     def _score_pairs(self, cards: List[Card]) -> int:
         rank_counter = Counter(card.rank for card in cards)
@@ -101,8 +101,7 @@ class Cribbage:
         total = 0
 
         suits_found_just_hand = set([card.suit for card in hand.cards])
-        suits_found_with_cut = set(
-            [card.suit for card in hand.cards + [cut_card]])
+        suits_found_with_cut = set([card.suit for card in hand.cards + [cut_card]])
 
         if len(suits_found_just_hand) == 1:
             total = 4
