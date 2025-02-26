@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cribbage"
+version = "0.1.0"
+description = "Cribbage implementation"
+authors = ["BrandonJDedolph@gmail.com"]
+packages = [
+    {include = "cribbage"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+# Add your dependencies here
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+# Add your dev dependencies here
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

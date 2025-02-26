@@ -1,0 +1,6 @@
+Need to decide which model to use for this. Claude recommended: CCN + MCTS (Convolutional Neural Network + Monte Carlo Tree Search)
+
+Steps to Succeed:
+
+1. Create Cribbage Game (or use library)
+2. Research more about NN
