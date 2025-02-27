@@ -3,8 +3,8 @@ from typing import List
 
 
 class Hand:
-    def __init__(self):
-        self.cards: List[Card] = []
+    def __init__(self, cards: List[Card] = None):
+        self.cards = cards if cards else []
 
     def draw(self, card: Card):
         self.cards.append(card)

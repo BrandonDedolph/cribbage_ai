@@ -17,6 +17,14 @@ class TestCard:
         card = Card("S", "Q")
         assert str(card) == "SQ"
 
+    def test_card_equality(self):
+        card1 = Card("H", "Q")
+        card2 = Card("S", "Q")
+        card3 = Card("H", "Q")
+
+        assert card1 != card2
+        assert card1 == card3
+
 
 class TestDeck:
     def test_deck_initialization(self):
