@@ -1,0 +1,1 @@
+1. Swap __repr__ to rank first then suit. Also update the Card init to be rank then suit. All tests will have to be refactored.
