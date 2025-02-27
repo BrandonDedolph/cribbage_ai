@@ -18,12 +18,13 @@ class DiscardAnalyzer:
 
         discard_options_averaged = []
 
-        for i, discard_choices in enumerate(combinations(hand.cards, 2)):
+        for i, discard_choices in enumerate(
+            combinations(hand.cards, len(hand.cards) - 4)
+        ):
             scores = 0
             discard_choices = list(discard_choices)
 
-            keep_cards = [
-                card for card in hand.cards if card not in discard_choices]
+            keep_cards = [card for card in hand.cards if card not in discard_choices]
 
             for cut_card in possible_cut_cards:
                 keep_hand = Hand(keep_cards)
