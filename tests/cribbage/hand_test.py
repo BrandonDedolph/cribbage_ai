@@ -14,8 +14,8 @@ def empty_hand():
 def hand_with_cards():
     """Fixture that provides a hand with two cards."""
     hand = Hand()
-    hand.draw(Card("H", "K"))
-    hand.draw(Card("S", "5"))
+    hand.draw(Card("K", "H"))
+    hand.draw(Card("5", "S"))
     return hand
 
 
@@ -27,13 +27,13 @@ def test_init(empty_hand):
 
 def test_draw(empty_hand):
     """Test that drawing a card adds it to the hand."""
-    card = Card("H", "K")
+    card = Card("K", "H")
     empty_hand.draw(card)
     assert len(empty_hand.cards) == 1
     assert empty_hand.cards[0] == card
 
     # Draw another card
-    card2 = Card("S", "5")
+    card2 = Card("5", "S")
     empty_hand.draw(card2)
     assert len(empty_hand.cards) == 2
     assert empty_hand.cards[1] == card2
@@ -61,7 +61,7 @@ def test_play(hand_with_cards):
 
 def test_play_invalid_index(empty_hand):
     """Test that playing a card with invalid index raises an error."""
-    card = Card("S", "10")
+    card = Card("10", "S")
     empty_hand.draw(card)
 
     # Try to play with an invalid index
@@ -77,7 +77,7 @@ def test_show_hand(hand_with_cards, monkeypatch, capsys):
     # Call show_hand and capture the output
     hand_with_cards.show_hand()
     captured = capsys.readouterr()
-    expected_output = "0:HK\n1:S5\n"
+    expected_output = "0:KH\n1:5S\n"
     assert captured.out == expected_output
 
     # Test with empty hand

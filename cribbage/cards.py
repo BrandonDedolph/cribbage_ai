@@ -4,18 +4,18 @@ from typing import List
 
 
 class Card:
-    def __init__(self, suit, rank):
+    def __init__(self, rank, suit):
         self.suit = suit
         self.rank = rank
 
     def __str__(self):
-        return self.suit + self.rank
+        return self.rank + self.suit
 
     def __eq__(self, other):
         return self.suit == other.suit and self.rank == other.rank
 
     def __repr__(self):
-        return f"{self.suit}{self.rank}"
+        return f"{self.rank}{self.suit}"
 
 
 class Deck:
@@ -47,7 +47,7 @@ class Deck:
         self.deck: List[Card] = []
         for suit in self.SUITS:
             for rank in self.RANKS:
-                self.deck.append(Card(suit, rank))
+                self.deck.append(Card(rank, suit))
 
     def shuffle(self):
         random.shuffle(self.deck)

@@ -6,21 +6,21 @@ from cribbage.cards import Card, Deck
 
 class TestCard:
     def test_card_creation(self):
-        card = Card("H", "K")
-        assert card.suit == "H"
+        card = Card("K", "H")
         assert card.rank == "K"
+        assert card.suit == "H"
 
     def test_card_string_representation(self):
-        card = Card("D", "10")
-        assert str(card) == "D10"
+        card = Card("10", "D")
+        assert str(card) == "10D"
 
-        card = Card("S", "Q")
-        assert str(card) == "SQ"
+        card = Card("Q", "S")
+        assert str(card) == "QS"
 
     def test_card_equality(self):
-        card1 = Card("H", "Q")
-        card2 = Card("S", "Q")
-        card3 = Card("H", "Q")
+        card1 = Card("Q", "H")
+        card2 = Card("Q", "S")
+        card3 = Card("Q", "H")
 
         assert card1 != card2
         assert card1 == card3
@@ -36,10 +36,10 @@ class TestDeck:
         assert len(card_strings) == len(set(card_strings))
 
         # Check if all suits and ranks are present
-        suits = set([card.suit for card in deck.deck])
         ranks = set([card.rank for card in deck.deck])
-        assert suits == set(Deck.SUITS)
+        suits = set([card.suit for card in deck.deck])
         assert ranks == set(Deck.RANKS)
+        assert suits == set(Deck.SUITS)
 
     def test_draw_card(self):
         deck = Deck()
@@ -100,3 +100,4 @@ class TestDeck:
         # The probability of shuffling and getting the same order is 1/52!,
         # which is effectively zero for practical purposes
         assert cards1 != cards2
+
